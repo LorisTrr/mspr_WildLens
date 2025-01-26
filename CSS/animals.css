@@ -1,0 +1,47 @@
+.tab_animals{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Permet de passer à la ligne */
+        width: 100%;
+        gap: 10px; /* Espacement entre les divs */
+        margin-top: 50px;
+}
+.animal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(15% - 10px); /* Divise la largeur en 3 avec espacement */
+    height: 100px;
+    background-color: #31C48D;
+    text-align: center;
+    line-height: 100px;
+    border: 1px solid #000;
+    
+  }
+  h3{
+    color: #F6FCF9;
+    font-size: 36px;
+    
+  }
+  .animal img{
+    height: 100px;
+  }
+  .category{
+    margin-top: 50px;
+    background-color: #31C48D;
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+
+  }
+  .title-img{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+  .description{
+    padding : 0px 0px 0px 15px;
+    font-size: 22px;
+    color : #F6FCF9;
+  }
