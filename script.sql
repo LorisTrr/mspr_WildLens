@@ -1,43 +1,60 @@
 
--- Création de la base de données
-CREATE DATABASE IF NOT EXISTS wild_lens;
-USE animaux_quebec;
+DROP DATABASE IF EXISTS wildlens;
+CREATE DATABASE wildlens;
 
--- Suppression des tables si elles existent déjà
-DROP TABLE IF EXISTS animal;
-DROP TABLE IF EXISTS categorie_animal;
+USE wildlens;
 
--- Création des tables
-CREATE TABLE categorie_animal (
+-- Create User table
+CREATE TABLE User (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(50) NOT NULL
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE animal (
+-- Create Animal table
+CREATE TABLE Animal (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(50) NOT NULL,
+    espèce VARCHAR(100) NOT NULL,
     description TEXT,
-    lieu VARCHAR(100),
-    categorie_id INT,
-    FOREIGN KEY (categorie_id) REFERENCES categorie_animal(id)
+    nom_latin VARCHAR(100),
+    famille VARCHAR(50),
+    taille VARCHAR(50),
+    région VARCHAR(100),
+    habitat TEXT,
+    fun_fact TEXT
 );
 
--- Insertion des catégories
-INSERT INTO categorie_animal (nom) VALUES
-('Mammifère');
+-- Create Location table
+CREATE TABLE Location (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    country VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    latitude DECIMAL(10, 8),
+    longitude DECIMAL(11, 8)
+);
 
--- Insertion des animaux
-INSERT INTO animal (nom, description, lieu, categorie_id) VALUES
-('Castor', 'Rongeur semi-aquatique connu pour construire des barrages', 'Cours d''eau et lacs', 1),
-('Chien', 'Animal domestique fidèle et affectueux', 'Habitat humain', 1),
-('Chat', 'Félin domestique indépendant', 'Habitat humain', 1),
-('Coyote', 'Canidé sauvage adaptable', 'Forêts et prairies', 1),
-('Écureuil', 'Petit rongeur arboricole', 'Forêts', 1),
-('Lapin', 'Petit mammifère aux longues oreilles', 'Prairies et forêts', 1),
-('Loup', 'Canidé sauvage social', 'Forêts', 1),
-('Lynx', 'Félin sauvage aux oreilles pointues', 'Forêts', 1),
-('Ours', 'Grand mammifère omnivore', 'Forêts', 1),
-('Puma', 'Grand félin aussi appelé cougar', 'Montagnes et forêts', 1),
-('Raton laveur', 'Mammifère nocturne aux pattes agiles', 'Forêts et zones urbaines', 1),
-('Renard', 'Canidé rusé et adaptable', 'Forêts et zones urbaines', 1);
+-- Create Photo table
+CREATE TABLE Photo (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    file_path VARCHAR(255) NOT NULL,
+    file_name VARCHAR(255) NOT NULL,
+    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    animal_id INT,
+    FOREIGN KEY (animal_id) REFERENCES Animal(id)
+);
 
+-- Create ScanHistory table
+CREATE TABLE ScanHistory (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    photo_id INT NOT NULL,
+    user_id INT NOT NULL,
+    location_id INT NOT NULL,
+    scan_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (photo_id) REFERENCES Photo(id),
+    FOREIGN KEY (user_id) REFERENCES User(id),
+    FOREIGN KEY (location_id) REFERENCES Location(id)
+);
