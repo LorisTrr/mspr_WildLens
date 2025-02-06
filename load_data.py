@@ -1,7 +1,8 @@
-    
 import requests
 import zipfile
 import io
+import os
+from PIL import Image
 
 def download_and_extract_zip():
     # URL of the zip file
@@ -18,7 +19,14 @@ def download_and_extract_zip():
         # Extract the zip file
         with zipfile.ZipFile(zip_data) as zip_ref:
             zip_ref.extractall("./downloaded_data")  # Extract to a directory named 'downloaded_data'
+            #for each image in the downLoaded data, resize it to 224x224
+            for file in os.listdir("./downloaded_data"):
+                if file.endswith(".jpg") or file.endswith(".png"):
+                    img = Image.open(os.path.join("./downloaded_data", file))
+                    img = img.resize((224, 224))
+                    img.save(os.path.join("./downloaded_data", file))
             
+
         print("Successfully downloaded and extracted the zip file.")
         
     except requests.exceptions.RequestException as e:

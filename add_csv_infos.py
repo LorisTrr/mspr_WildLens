@@ -5,6 +5,7 @@ from sqlalchemy import create_engine, text
 def load_csv(file_path):
     df = pd.read_csv(file_path, delimiter=';', encoding='utf-8')
     df.columns = df.columns.str.strip().str.replace(" ", "_")
+    
 
     print("Aperçu des données :")
     print(df.head())
@@ -33,16 +34,10 @@ def insert_data(df, engine, table_name="Animal"):
     except Exception as e:
         print(f"❌ Erreur d'insertion : {e}")
 
-# 4️⃣ Vérifier l'insertion
-def check_data(engine, table_name="Animal"):
-    query = f"SELECT * FROM {table_name} LIMIT 5"
-    df = pd.read_sql(query, con=engine)
-    print("🔍 Aperçu des données insérées :")
-    print(df)
+
 
 # 🚀 Exécution des étapes
 csv_file = "downloaded_data/infos_especes.csv"  # Remplace par ton chemin correct
 df = load_csv(csv_file)
 engine = connect_to_db()
 insert_data(df, engine)
-check_data(engine)
