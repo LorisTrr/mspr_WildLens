@@ -1,0 +1,56 @@
+from fastapi import FastAPI, HTTPException
+import mysql.connector
+import matplotlib.pyplot as plt
+import io, base64
+from fastapi.responses import HTMLResponse, JSONResponse
+
+# Initialiser l'application FastAPI
+app = FastAPI()
+
+# Configuration de la base de données
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="wildlens"
+)
+cursor = db.cursor(dictionary=True)
+
+# Route pour récupérer toutes les empreintes d'animaux
+@app.get('/tracks', response_class=JSONResponse)
+def get_tracks():
+    cursor.execute("SELECT * FROM ScanHistory")
+    tracks = cursor.fetchall()
+    return tracks
+
+# Route pour générer une visualisation des empreintes par région
+@app.get('/tracks/visualization', response_class=HTMLResponse)
+def visualize_tracks():
+    cursor.execute("""
+        SELECT Location.region, COUNT(*) AS count
+        FROM ScanHistory
+        JOIN Location ON ScanHistory.location_id = Location.id
+        GROUP BY Location.region
+    """)
+    data = cursor.fetchall()
+
+    regions = [item['region'] for item in data]
+    counts = [item['count'] for item in data]
+
+    plt.figure(figsize=(8,5))
+    plt.bar(regions, counts, color='skyblue')
+    plt.title('Empreintes d’animaux par région')
+    plt.xlabel('Région')
+    plt.ylabel('Nombre de traces')
+    plt.xticks(rotation=45)
+
+    buffer = io.BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    img_str = base64.b64encode(buffer.read()).decode('utf-8')
+    buffer.close()
+
+    return f"<img src='data:image/png;base64,{img_str}' alt='Empreintes par région'>"
+
+# Correction du lancement de l'application pour permettre le mode 'reload'
+# Crée un fichier `main.py` et lance avec : uvicorn main:app --host 0.0.0.0 --port 8000 --reload
