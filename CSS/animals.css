@@ -6,6 +6,11 @@
         gap: 10px; /* Espacement entre les divs */
         margin-top: 50px;
 }
+
+.link_animal{
+  text-decoration: none !important;
+}
+
 .animal {
     display: flex;
     flex-direction: row;

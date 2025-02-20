@@ -118,5 +118,5 @@ def process_images(base_dir, train_ratio=0.7, validation_ratio=0.15):
             logging.info(f"Processed category: {category}")
 
 if __name__ == "__main__":
-    base_directory = r'C:\\Users\\Lenovo\\Downloads\\mspr_WildLens-main\\mspr_WildLens-main\\downloaded_data\\Mammifères'
+    base_directory = r'downloaded_data/Mammifères/'
     process_images(base_directory)

@@ -1,3 +1,13 @@
+<?php
+    $url = "http://127.0.0.1:5000/animals";
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $animals = json_decode($response, true);
+?>
 <head>
     <link rel="stylesheet" href="CSS/animals.css">
 </head>
@@ -5,55 +15,33 @@
 <body>
     <div class="container">
         <div class="tab_animals">
-            <a href="#chien">
-                <div class="animal">
-                    <img src="assets/images/chien.png" alt="" class="animal_picture">
-                    <h3 class="name-animal">Chien</h3>
-                </div>
-            </a>
-            <div class="animal">
-                <img src="assets/images/chat.png" alt="" class="animal_picture">
-                <h3 class="name-animal">Chat</h3>
-            </div>
-            <div class="animal">
-                <img src="assets/images/lynx.png" alt="" class="animal_picture">
-                <h3 class="name-animal">Lynx</h3>
-            </div>
-            <div class="animal">
-                <img src="assets/images/loup.png" alt="" class="animal_picture">
-                <h3 class="name-animal">Loup</h3>
-            </div>
+            <?php
+                foreach($animals as $animal){  ?>
+                    <div class="animal">
+                        <img src="assets/images/<?php echo $animal['espece'] ; ?>.png" alt="Photo <?php echo $animal['espece'] ; ?> " class="animal_picture">
+                        <a class='link_animal' href="#animal_<?php echo $animal['id'] ; ?>"> <h3 class="name-animal"><?php echo $animal['espece'] ?></h3></a>
+                    </div>
+                <?php }
+            ?>
+            
         </div>
-        <div id='chien' class="category">
+        <?php 
+        foreach($animals as $animal){ ?>
+        <div id='animal_<?php echo $animal['id']; ?>' class="category">
             <div class="title-img">
-                <img src="assets/images/chien.png" alt="" class="animal">
-                <h3>Chien</h3>
+                <img src="assets/images/<?php $animal['espece']; ?>.png" alt="Photo <?php echo $animal['espece']; ?>" class="animal">
+                <h3><?php echo $animal['espece']; ?></h3>
             </div>
         
             <div class="description">
-            <span style='font-size: bold;'> Origine :</span> Le chien (Canis lupus familiaris) est une sous-espèce domestiquée du loup gris.<br><br>
-            <span style='font-size: bold;'>Famille : </span>Canidés (inclut loups, renards, coyotes, etc.).<br><br>
-            Où les trouver : Partout dans le monde, vivant avec les humains ou, plus rarement, à l’état semi-sauvage.<br><br>
-            <span style='font-size: bold;'>Rôle :</span> Animaux de compagnie, travail (berger, policier, guide), ou chasse.<br><br>
-            <span style='font-size: bold;'>Caractéristiques : </span>Espèce sociale, intelligente, avec une grande diversité de races adaptées à différents besoins.
+            <span style='font-size: bold;'> Espece :</span><?php echo $animal['espece'] ; ?><br><br>
+            <span style='font-size: bold;'> Habitat :</span><?php echo $animal['habitat'] ; ?><br><br>
+            <span style='font-size: bold;'> Famille :</span><?php echo $animal['famille'] ; ?><br><br>
+            <span style='font-size: bold;'>Nom latin : </span><?php echo $animal['nom_latin'] ; ?><br><br>
+            Description : <?php echo $animal['description'] ; ?><br><br>
+            <span style='font-size: bold;'>Fun fact :</span> <?php echo $animal['fun_fact']; ?><br><br>
             </div>
         </div>
-
-        <div id="loup" class="category">
-            <div class="title-img">
-                <img src="assets/images/loup.png" alt="" class="animal">
-                <h3>Loup</h3>
-            </div>
-        
-            <div class="description">
-            <span style='font-size: bold;'> Origine :</span> Le chien (Canis lupus familiaris) est une sous-espèce domestiquée du loup gris.<br><br>
-            <span style='font-size: bold;'>Famille : </span>és (inclut loups, renards, coyotes, etc.).<br><br>
-            Où les trouver : Partout dans le monde, vivant avec les humains ou, plus rarement, à l’état semi-sauvage.<br><br>
-            <span style='font-size: bold;'>Rôle :</span> Animaux de compagnie, travail (berger, policier, guide), ou chasse.<br><br>
-            <span style='font-size: bold;'>Caractéristiques : </span>Espèce sociale, intelligente, avec une grande diversité de races adaptées à différents besoins.
-            </div>
-        </div>
-
-
+        <?php } ?>
     </div>
 </body>

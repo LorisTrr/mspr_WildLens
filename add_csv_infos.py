@@ -1,6 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine, text
 import re
+from unidecode import unidecode
 
 # 🚀 Fonction 1 : Charger le fichier CSV
 def load_csv(file_path):
@@ -8,8 +9,9 @@ def load_csv(file_path):
     # Utilisation de pandas pour charger le CSV avec un délimiteur spécifique (point-virgule)
     df = pd.read_csv(file_path, delimiter=';', encoding='utf-8')
 
-    # Nettoyage des noms de colonnes : suppression des espaces et remplacement des espaces par des underscores
-    df.columns = df.columns.str.strip().str.replace(" ", "_")
+    # Nettoyage des noms de colonnes : suppression des espaces et remplacement des espaces par des underscore
+    df.columns = df.columns.str.strip().str.replace(" ", "_").str.lower().map(unidecode)
+
     
     # Affichage de la forme du DataFrame pour vérification
     print(f"📂 Fichier chargé : {file_path} ({df.shape[0]} lignes, {df.shape[1]} colonnes)")
@@ -60,7 +62,7 @@ def clean_data(df):
         return "Information non renseignée"  # Retour par défaut si la conversion échoue
 
     # Appliquer la conversion à la colonne "Taille"
-    df["Taille"] = df["Taille"].apply(convertir_taille)
+    df["taille"] = df["taille"].apply(convertir_taille)
 
     # ✅ Suppression des chiffres dans toutes les colonnes sauf "Taille"
     def supprimer_chiffres(val):
@@ -69,11 +71,11 @@ def clean_data(df):
     
     # Appliquer la suppression des chiffres dans toutes les colonnes sauf "Taille"
     for col in df.columns:
-        if col != "Taille":
+        if col != "taille":
             df[col] = df[col].apply(supprimer_chiffres)
 
     # ✅ Normalisation de la colonne "Région"
-    df["Région"] = df["Région"].str.replace(",", ";").str.replace("  ", " ").str.strip()
+    df["region"] = df["region"].str.replace(",", ";").str.replace("  ", " ").str.strip()
 
     # Affichage pour confirmer que les données ont été nettoyées et standardisées
     print("✅ Données nettoyées et standardisées !")
