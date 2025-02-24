@@ -4,7 +4,6 @@ import hashlib
 import logging
 from PIL import Image, ImageEnhance
 import random
-import shutil
 from concurrent.futures import ThreadPoolExecutor
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

@@ -3,7 +3,6 @@ from sqlalchemy import create_engine, text
 import re
 from unidecode import unidecode
 
-# 🚀 Fonction 1 : Charger le fichier CSV
 def load_csv(file_path):
     """Chargement des données depuis un fichier CSV"""
     # Utilisation de pandas pour charger le CSV avec un délimiteur spécifique (point-virgule)
@@ -14,10 +13,9 @@ def load_csv(file_path):
 
     
     # Affichage de la forme du DataFrame pour vérification
-    print(f"📂 Fichier chargé : {file_path} ({df.shape[0]} lignes, {df.shape[1]} colonnes)")
+    print(f" Fichier chargé : {file_path} ({df.shape[0]} lignes, {df.shape[1]} colonnes)")
     return df
 
-# 🚀 Fonction 2 : Nettoyage du texte (guillemets mal encodés, espaces, etc.)
 def nettoyer_texte(val):
     """Nettoie les caractères spéciaux et les guillemets mal encodés dans les valeurs textuelles."""
     if isinstance(val, str):
@@ -29,7 +27,6 @@ def nettoyer_texte(val):
         val = re.sub(r"\s+", " ", val).strip()
     return val
 
-# 🚀 Fonction 3 : Nettoyage des données
 def clean_data(df):
     """Effectue le nettoyage et la transformation des données."""
     
@@ -40,7 +37,6 @@ def clean_data(df):
     # Applique la fonction de nettoyage des textes sur toutes les colonnes du DataFrame
     df = df.applymap(nettoyer_texte)
 
-    # ✅ Traitement spécifique pour la colonne "Taille"
     def convertir_taille(val):
         """Convertir les valeurs de taille en mètres."""
         if isinstance(val, str):
@@ -64,7 +60,6 @@ def clean_data(df):
     # Appliquer la conversion à la colonne "Taille"
     df["taille"] = df["taille"].apply(convertir_taille)
 
-    # ✅ Suppression des chiffres dans toutes les colonnes sauf "Taille"
     def supprimer_chiffres(val):
         """Supprime tous les chiffres d'une chaîne de caractères sauf pour la colonne 'Taille'."""
         return re.sub(r"\d+", "", val) if isinstance(val, str) else val
@@ -74,22 +69,21 @@ def clean_data(df):
         if col != "taille":
             df[col] = df[col].apply(supprimer_chiffres)
 
-    # ✅ Normalisation de la colonne "Région"
     df["region"] = df["region"].str.replace(",", ";").str.replace("  ", " ").str.strip()
 
     # Affichage pour confirmer que les données ont été nettoyées et standardisées
-    print("✅ Données nettoyées et standardisées !")
+    print("Données nettoyées et standardisées !")
     return df
 
-# 🚀 Fonction 4 : Connexion à la base de données MySQL
+#Connexion à la base de données MySQL
 def connect_to_db():
     """Établit une connexion à la base de données MySQL."""
     # Création d'une connexion à la base de données avec SQLAlchemy
     engine = create_engine("mysql+mysqlconnector://root:@localhost/wildlens")
-    print("✅ Connexion réussie à la base de données !")
+    print("Connexion réussie à la base de données !")
     return engine
 
-# 🚀 Fonction 5 : Insertion des données dans MySQL
+# Insertion des données dans MySQL
 def insert_data(df, engine, table_name="animal"):
     """Insère les données nettoyées dans la base de données MySQL."""
     try:
@@ -108,7 +102,6 @@ def insert_data(df, engine, table_name="animal"):
         # En cas d'erreur lors de l'insertion
         print(f"❌ Erreur d'insertion : {e}")
 
-# 🚀 Exécution du script principal
 if __name__ == "__main__":
     # Chemin vers le fichier CSV contenant les données des espèces
     csv_file = "downloaded_data/infos_especes.csv"  # Mettre ici le chemin exact de ton fichier
