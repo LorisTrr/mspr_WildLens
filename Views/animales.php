@@ -29,7 +29,7 @@
         foreach($animals as $animal){ ?>
         <div id='animal_<?php echo $animal['id']; ?>' class="category">
             <div class="title-img">
-                <img src="assets/images/<?php $animal['espece']; ?>.png" alt="Photo <?php echo $animal['espece']; ?>" class="animal">
+                <img src="assets/images/<?php echo $animal['espece']; ?>.png" alt="Photo <?php echo $animal['espece']; ?>" class="animal">
                 <h3><?php echo $animal['espece']; ?></h3>
             </div>
         

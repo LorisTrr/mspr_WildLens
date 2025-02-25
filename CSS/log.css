@@ -1,0 +1,47 @@
+.container-log{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 150px;;
+}
+
+.log, .register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #31C48D;
+    padding: 50px;
+    border-radius: 20px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+input{
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+button{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #F2F2F2;
+    transition: 0.5s;
+}
+button:hover{
+    background-color: #31C48D;
+    color: white;
+    cursor: pointer;
+}
+h1, p {
+    color: white;
+}

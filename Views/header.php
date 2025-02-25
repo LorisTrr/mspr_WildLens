@@ -23,5 +23,12 @@
         <div class="element-nav">
             <a href="?page=findanimals">Où trouver quel animal ? </a>
         </div>
+        <div class="element-nav">
+            <?php if($is_logged_in) { ?>
+                <a href="?page=log">Se déconnecter </a>
+                <?php } else { ?>
+                     <a href="?page=log">Se connecter </a>
+                <?php } ?>
+        </div>
     </div>
 </body>

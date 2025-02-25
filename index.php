@@ -1,4 +1,8 @@
 <?php 
+session_start();
+$is_logged_in = isset($_SESSION['user_email']) ? true : false;
+var_dump($is_logged_in);
+
 
 require_once "Views/header.php";
 
@@ -21,6 +25,9 @@ switch($page) {
         break;
     case 'findanimals':
         require_once "Views/find_animals.php";
+        break;
+    case 'log' : 
+        require_once "Views/log.php";
         break;
     default:
         require_once "Views/accueil.php";
