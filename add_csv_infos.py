@@ -2,6 +2,8 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 import re
 from unidecode import unidecode
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def load_csv(file_path):
     """Chargement des données depuis un fichier CSV"""
@@ -103,11 +105,16 @@ def insert_data(df, engine, table_name="animal"):
         print(f"❌ Erreur d'insertion : {e}")
 
 if __name__ == "__main__":
+
     # Chemin vers le fichier CSV contenant les données des espèces
     csv_file = "downloaded_data/infos_especes.csv"  # Mettre ici le chemin exact de ton fichier
 
     # Chargement du fichier CSV dans un DataFrame
     df = load_csv(csv_file)
+    plt.figure(figsize=(20, 10))
+    sns.heatmap(df.isna(), cbar=False)
+    plt.show()
+    
     
     # Nettoyage des données
     df = clean_data(df)

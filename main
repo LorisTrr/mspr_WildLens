@@ -5,6 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
 # Configuration de la base de données
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/wildlens'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -65,6 +66,8 @@ def get_users():
         'last_name': u.last_name,
         'created_at': u.created_at
     } for u in users])
+
+
 
 @app.route('/users', methods=['POST'])
 def add_user():

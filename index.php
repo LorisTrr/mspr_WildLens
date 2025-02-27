@@ -1,7 +1,6 @@
 <?php 
 session_start();
 $is_logged_in = isset($_SESSION['user_email']) ? true : false;
-var_dump($is_logged_in);
 
 
 require_once "Views/header.php";

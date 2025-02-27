@@ -14,6 +14,8 @@
 
 <body>
     <div class="container">
+        <?php if ($animals != null) { ?>
+            <h1>Erreur lors de la récupération des animaux</h1>
         <div class="tab_animals">
             <?php
                 foreach($animals as $animal){  ?>
@@ -42,6 +44,8 @@
             <span style='font-size: bold;'>Fun fact :</span> <?php echo $animal['fun_fact']; ?><br><br>
             </div>
         </div>
+        <?php }}else{ ?>
+            <div class="no-animals">Aucune espèces n'a encore été ajoutée</div>
         <?php } ?>
     </div>
 </body>
