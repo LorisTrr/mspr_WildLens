@@ -13,7 +13,7 @@ def download_and_extract_zip():
         response = requests.get(zip_url)
         response.raise_for_status()  # Raise an exception for bad status codes
         
-        # Create a BytesIO object from the response content
+        
         zip_data = io.BytesIO(response.content)
         
         # Extract the zip file
@@ -24,8 +24,6 @@ def download_and_extract_zip():
                 if file.endswith(".jpg") or file.endswith(".png"):
                     img = Image.open(os.path.join("./downloaded_data", file))
                     img.save(os.path.join("./downloaded_data", file))
-            
-
         print("Successfully downloaded and extracted the zip file.")
         
     except requests.exceptions.RequestException as e:

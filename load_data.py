@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 HASHES = set()
-OUTPUT_DIR = './resized_images'
+OUTPUT_DIR = './dataset'
 TRAIN_DIR = os.path.join(OUTPUT_DIR, 'train')
 VALIDATION_DIR = os.path.join(OUTPUT_DIR, 'validation')
 TEST_DIR = os.path.join(OUTPUT_DIR, 'test')

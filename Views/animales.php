@@ -15,7 +15,6 @@
 <body>
     <div class="container">
         <?php if ($animals != null) { ?>
-            <h1>Erreur lors de la récupération des animaux</h1>
         <div class="tab_animals">
             <?php
                 foreach($animals as $animal){  ?>

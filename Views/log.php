@@ -35,8 +35,8 @@ if(isset($_POST['form_type']) && $_POST['form_type'] === 'login'){
 
 if(isset($_POST['register'])){
     $email = $_POST['mail'];
-    $password = md5($_POST['password']);
-    $password2 = md5($_POST['password2']);
+    $password = hash('sha256', $_POST['password']);
+    $password2 = hash('sha256', $_POST['password2']);
     if($password === $password2){
         $url = "http://127.0.0.1:5000/users";
         $data = array(
@@ -47,13 +47,13 @@ if(isset($_POST['register'])){
             "last_name" => $_POST['prenom'] // Remplacez par le nom souhaité
         );
 
-        $options = array(
+        $options = [
             'http' => array(
                 'header'  => "Content-type: application/json\r\n",
                 'method'  => 'POST',
                 'content' => json_encode($data),
             ),
-        );
+        ];
 
 
         $context  = stream_context_create($options);

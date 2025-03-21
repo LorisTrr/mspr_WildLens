@@ -1,6 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine, text
 import re
+import os
 from unidecode import unidecode
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -99,10 +100,10 @@ def insert_data(df, engine, table_name="animal"):
 
         # Insertion des données dans la table spécifiée, en mode 'append' (ajout)
         df.to_sql(table_name, con=engine, if_exists='append', index=False)
-        print(f"✅ Données insérées dans la table `{table_name}` !")
+        print(f"Données insérées dans la table `{table_name}` !")
     except Exception as e:
         # En cas d'erreur lors de l'insertion
-        print(f"❌ Erreur d'insertion : {e}")
+        print(f"Erreur d'insertion : {e}")
 
 if __name__ == "__main__":
 
@@ -114,7 +115,39 @@ if __name__ == "__main__":
     plt.figure(figsize=(20, 10))
     sns.heatmap(df.isna(), cbar=False)
     plt.show()
+
+    print("Nombre de valeurs manquantes par colonne :")
+    print (df.isna().sum())
     
+    #add graph to see number of img per species
+    base_dir = "downloaded_data/Mammifères"
+
+    animal_names = []
+    photo_counts = []
+
+    # Parcourir chaque sous-dossier (animal)
+    for animal in os.scandir(base_dir):
+        if animal.is_dir():  # Vérifier si c'est un dossier
+            # Compter le nombre de fichiers dans le dossier
+            num_photos = sum(1 for f in os.scandir(animal) if f.is_file())
+            
+            # Ajouter aux listes
+            animal_names.append(animal.name)
+            photo_counts.append(num_photos)
+
+    # Tracer le graphique
+    plt.figure(figsize=(12, 6))
+    plt.bar(animal_names, photo_counts, color='skyblue')
+    plt.xlabel("Nom de l'espèce")
+    plt.ylabel("Nombre de photos")
+    plt.title("Nombre de photos par espèces")
+    plt.xticks(rotation=45, ha='right')  # Rotation pour lisibilité
+    plt.tight_layout()
+    plt.show()
+
+    # Afficher le graphique
+    plt.show()
+
     
     # Nettoyage des données
     df = clean_data(df)
