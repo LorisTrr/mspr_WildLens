@@ -4,8 +4,8 @@ from tensorflow.keras import layers, models
 from tensorflow.keras.optimizers import Adam
 
 # Répertoires
-train_dir = 'dataset/train'  # Répertoire contenant les images d'entraînement
-val_dir = 'dataset/validation'  # Répertoire contenant les images de validation
+train_dir = 'data/dataset/train'  # Répertoire contenant les images d'entraînement
+val_dir = 'data/dataset/validation'  # Répertoire contenant les images de validation
 
 # Préparation des générateurs de données avec augmentation
 train_datagen = ImageDataGenerator(
@@ -69,6 +69,6 @@ model.save('model/model_wildlens.h5')
 
 # Sauvegarder les noms des classes dans un fichier texte
 class_names = list(train_generator.class_indices.keys())  # Récupérer les noms des classes à partir du générateur
-with open('class_names.txt', 'w') as f:
+with open('model/class_names.txt', 'w') as f:
     for class_name in class_names:
         f.write(f"{class_name}\n")

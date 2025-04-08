@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 HASHES = set()
-OUTPUT_DIR = './dataset'
+OUTPUT_DIR = './data/dataset'
 TRAIN_DIR = os.path.join(OUTPUT_DIR, 'train')
 VALIDATION_DIR = os.path.join(OUTPUT_DIR, 'validation')
 TEST_DIR = os.path.join(OUTPUT_DIR, 'test')
@@ -117,5 +117,5 @@ def process_images(base_dir, train_ratio=0.7, validation_ratio=0.15):
             logging.info(f"Processed category: {category}")
 
 if __name__ == "__main__":
-    base_directory = r'downloaded_data/Mammifères/'
+    base_directory = r'data/downloaded_data/Mammifères/'
     process_images(base_directory)

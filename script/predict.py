@@ -6,7 +6,7 @@ import numpy as np
 model = load_model('model/model_wildlens.h5')
 
 # Charger les noms des classes depuis le fichier 'class_names.txt'
-with open('class_names.txt', 'r') as f:
+with open('model/class_names.txt', 'r') as f:
     class_names = [line.strip() for line in f.readlines()]
 
 # Fonction pour prédire l'image
@@ -24,8 +24,4 @@ def predict_image(img_path):
     predicted_class = class_names[predicted_class_index]  # Récupérer le nom de la classe à partir de l'indice
 
     return predicted_class
-
-# Exemple d'utilisation avec une image
-img_path = 'dataset/test/Coyote/Coyote_0001 .jpg'  # Chemin vers l'image à tester
-predicted_class = predict_image(img_path)
 

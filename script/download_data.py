@@ -18,12 +18,12 @@ def download_and_extract_zip():
         
         # Extract the zip file
         with zipfile.ZipFile(zip_data) as zip_ref:
-            zip_ref.extractall("./downloaded_data")  # Extract to a directory named 'downloaded_data'
+            zip_ref.extractall("./data/downloaded_data")  # Extract to a directory named 'downloaded_data'
             #for each image in the downLoaded data, resize it to 224x224
-            for file in os.listdir("./downloaded_data"):
+            for file in os.listdir("./data/downloaded_data"):
                 if file.endswith(".jpg") or file.endswith(".png"):
-                    img = Image.open(os.path.join("./downloaded_data", file))
-                    img.save(os.path.join("./downloaded_data", file))
+                    img = Image.open(os.path.join("./data/downloaded_data", file))
+                    img.save(os.path.join("./data/downloaded_data", file))
         print("Successfully downloaded and extracted the zip file.")
         
     except requests.exceptions.RequestException as e:

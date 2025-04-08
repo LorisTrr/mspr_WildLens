@@ -12,13 +12,17 @@
             <div class="form">
                 <p>A partir de notre site web, vous pouvez importer une photo depuis votre ordinateur</p>
                 <p>Choisissez votre photo dans votre gallerie d'image</p>
-                <form>
+                <form method="POST" enctype="multipart/form-data">
                     <div class="file-upload">
                         <label for="fileInput" class="file-label">
                         <span class="file-button">Choisir un fichier</span>
                         <span class="file-text">Aucun fichier sélectionné</span>
-                        <input type="file" id="fileInput" class="file-input">
+                        <input type="file" id="fileInput" name='file' class="file-input">
                         </label>
+                        <br/>
+                        <input type="text" placeholder='Quel est la ville la plus proche de l empreinte' name='city' />
+                        <br/>
+                        <button type="submit" class="file-button">Envoyer</button>
                     </div>
                 </form>
             </div>

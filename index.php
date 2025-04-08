@@ -11,6 +11,16 @@ if(isset($_GET['page'])){
     $page = $_GET['page'];
 }
 
+if (
+    isset($_POST['city'], $_FILES['file']) && // Vérifie si les 2 existent
+    !empty(trim($_POST['city'])) &&           // Vérifie que city n'est pas vide (même sans espaces)
+    $_FILES['file']['error'] === 0            // Vérifie qu'il y a bien un fichier uploadé sans erreur
+) {
+    $page = 'predict';
+}else{
+    $page = 'accueil';
+}
+
 
 switch($page) {
     case 'animale':
@@ -27,6 +37,9 @@ switch($page) {
         break;
     case 'log' : 
         require_once "Views/log.php";
+        break;
+    case 'predict':
+        require_once "Views/predict.php";
         break;
     default:
         require_once "Views/accueil.php";

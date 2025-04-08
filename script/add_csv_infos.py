@@ -38,7 +38,7 @@ def clean_data(df):
     df.replace("", "Information non renseignée", inplace=True)
 
     # Applique la fonction de nettoyage des textes sur toutes les colonnes du DataFrame
-    df = df.applymap(nettoyer_texte)
+    df = df.map(nettoyer_texte)
 
     def convertir_taille(val):
         """Convertir les valeurs de taille en mètres."""
@@ -108,7 +108,7 @@ def insert_data(df, engine, table_name="animal"):
 if __name__ == "__main__":
 
     # Chemin vers le fichier CSV contenant les données des espèces
-    csv_file = "downloaded_data/infos_especes.csv"  # Mettre ici le chemin exact de ton fichier
+    csv_file = "data/downloaded_data/infos_especes.csv"  # Mettre ici le chemin exact de ton fichier
 
     # Chargement du fichier CSV dans un DataFrame
     df = load_csv(csv_file)
@@ -120,7 +120,7 @@ if __name__ == "__main__":
     print (df.isna().sum())
     
     #add graph to see number of img per species
-    base_dir = "downloaded_data/Mammifères"
+    base_dir = "data/downloaded_data/Mammifères"
 
     animal_names = []
     photo_counts = []

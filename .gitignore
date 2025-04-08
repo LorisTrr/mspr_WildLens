@@ -1,1 +1,3 @@
-downloaded_data/
+data/
+model/
+script/__pycache__/

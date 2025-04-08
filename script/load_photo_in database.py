@@ -23,7 +23,7 @@ def load_photos():
     
     try:
         # Get list of photos from downloaded_data/photos directory
-        photos_dir = "./downloaded_data/Mammifères/"
+        photos_dir = "./data/downloaded_data/Mammifères/"
         for filename in os.listdir(photos_dir):
             if filename.endswith((".jpg", ".jpeg", ".png")):
                 file_path = os.path.join(photos_dir, filename)

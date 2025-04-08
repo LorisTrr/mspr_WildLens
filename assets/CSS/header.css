@@ -42,12 +42,12 @@ body{
     text-decoration: none;
     color: var(--text);
     transition: 0.5s;
-    border-bottom:solid 4px var(--text);
+    border-bottom:solid 1px var(--text);
     /*gray : #DFDFDF */
 
 }
 .element-nav > a:hover {
     color : #DFDFDF; 
-    border-bottom:solid 4px var(--text);
+    border-bottom:solid 1px var(--text);
 
 }
