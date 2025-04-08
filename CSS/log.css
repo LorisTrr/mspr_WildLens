@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #31C48D;
+    background-color: var(--primary);
     padding: 50px;
     border-radius: 20px;
 }
@@ -38,10 +38,10 @@ button{
     transition: 0.5s;
 }
 button:hover{
-    background-color: #31C48D;
-    color: white;
+    background-color: var(--primary);
+    color: var(--text);
     cursor: pointer;
 }
 h1, p {
-    color: white;
+    color: var(--text);
 }

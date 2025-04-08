@@ -1,0 +1,17 @@
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --primary: #31C48D ;
+    --secondary: #74BEBA;
+    --icon-color: rgb(83, 79, 79)
+;
+  }
+  
+  [data-theme="dark"] {
+    --bg: #121212;
+    --text: #e5e4ff;
+    --background: #000000;
+    --primary: #aa3434;
+    --secondary: #323c3b;
+    --icon-color: #d4d4d4;
+  }

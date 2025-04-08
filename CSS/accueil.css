@@ -3,7 +3,7 @@
     text-align: center;
 }
 .form > p{
-    color: #F6FCF9;
+    color: var(--text);
     font-size: 24px;
     font-weight: 500;
     width: 90%;
@@ -15,7 +15,7 @@
     align-items: center;
     border-radius: 30px;
     width: 50%; 
-    background-color: #31C48D ;
+    background-color: var(--primary); ;
     padding: 50px;
 }
 *.form{
@@ -41,10 +41,10 @@
     gap: 10px;
     cursor: pointer;
     padding: 10px 20px;
-    border: 2px dashed #6c5ce7;
+    border: 2px dashed var(--secondary);
     border-radius: 8px;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--bg);
+    color: var(--text);
     transition: background-color 0.3s, border-color 0.3s;
   }
   
@@ -54,7 +54,7 @@
   }
   
   .file-button {
-    background-color: #31C48D;
+    background-color: var(--primary);
     color: #fff;
     padding: 8px 12px;
     border-radius: 5px;
@@ -63,19 +63,19 @@
   }
   
   .file-button:hover {
-    background-color: #2db181;
+    background-color: var(--primary);
   }
   
   .file-text {
     font-size: 14px;
-    color: #555;
+    color: var(--text);
   }
   
   .file-input {
     display: none; /* Cache l'input natif */
   }
   h1{
-    color : #5F4C3F ;
+    color : var(--text) ;
     font-size: 36px;
-    border-bottom: solid 5px #5F4C3F;
+    border-bottom: solid 3px var(--text);
   }

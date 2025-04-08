@@ -22,5 +22,15 @@
       </div>
     </div>
   </footer>
+  <script>
+    
+    const toggleTheme = () => {
+    const current = document.documentElement.getAttribute('data-theme')
+    document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark')
+    }
+    button = document.querySelector('.icon-theme')
+    button.addEventListener('click', toggleTheme)
+    
+  </script>
 </body>
 </html>

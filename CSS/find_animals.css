@@ -6,7 +6,7 @@
 
 .map-title {
     text-align: center;
-    color: #333;
+    color: var(--text);
     margin-bottom: 30px;
 }
 
@@ -45,13 +45,13 @@
 }
 
 .animal-info h2 {
-    color: #333;
+    color: var(--text);
     margin-top: 0;
     margin-bottom: 15px;
 }
 
 .animal-info p {
-    color: #666;
+    color: var(--text);
     line-height: 1.6;
     margin: 0;
 }
