@@ -74,6 +74,20 @@
   .file-input {
     display: none; /* Cache l'input natif */
   }
+  .city{
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    border: solid 2px var(--text);
+    background-color: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+  }
+  button{
+    cursor: pointer;
+  }
   h1{
     color : var(--text) ;
     font-size: 36px;

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="CSS/stat.css">
+    <link rel="stylesheet" href="assets/CSS/stat.css">
 </head>
 <body>
 <div class="stats-container">

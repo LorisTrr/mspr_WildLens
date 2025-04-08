@@ -35,7 +35,7 @@
         $result = json_decode($result);
         ?>
 <head>
-    <link rel="stylesheet" href="CSS/predict.css"> 
+    <link rel="stylesheet" href="assets/CSS/predict.css"> 
 </head>
         <body>
             <div class="container">

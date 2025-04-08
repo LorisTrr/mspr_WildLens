@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="CSS/accueil.css">
+    <link rel="stylesheet" href="assets/CSS/accueil.css">
 </head>
 <body>
     
@@ -20,7 +20,7 @@
                         <input type="file" id="fileInput" name='file' class="file-input">
                         </label>
                         <br/>
-                        <input type="text" placeholder='Quel est la ville la plus proche de l empreinte' name='city' />
+                        <input type="text" class="city" placeholder="Quel est la ville la plus proche de l'empreinte" name='city' />
                         <br/>
                         <button type="submit" class="file-button">Envoyer</button>
                     </div>

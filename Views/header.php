@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wildlense - Accueil</title>
     <!-- Lien vers un fichier CSS externe -->
-    <link rel="stylesheet" href="CSS/variable.css">
-    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="assets/CSS/variable.css">
+    <link rel="stylesheet" href="assets/CSS/header.css">
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
 </head>
 <body>

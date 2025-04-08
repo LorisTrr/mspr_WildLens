@@ -9,7 +9,7 @@
     $animals = json_decode($response, true);
 ?>
 <head>
-    <link rel="stylesheet" href="CSS/animals.css">
+    <link rel="stylesheet" href="assets/CSS/animals.css">
 </head>
 
 <body>

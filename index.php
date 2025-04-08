@@ -17,7 +17,7 @@ if (
     $_FILES['file']['error'] === 0            // Vérifie qu'il y a bien un fichier uploadé sans erreur
 ) {
     $page = 'predict';
-}else{
+}elseif ($page == ''){
     $page = 'accueil';
 }
 

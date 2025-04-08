@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="CSS/log.css">
+    <link rel="stylesheet" href="assets/CSS/log.css">
 </head>
 <?php
 if(isset($_POST['form_type']) && $_POST['form_type'] === 'login'){
