@@ -5,9 +5,8 @@ body{
     margin: 0px!important;
     background-color: var(--secondary);
 }
-.nav{
+.header{
     background-color: var(--primary);
-    height: 10vh;
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -27,8 +26,71 @@ body{
   }
   
 
-.element-nav{
-}
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav{
+        display: none;
+    }
+    .logo-menu-icon{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  
+    .nav {
+      width: 100%;
+      position: static;  /* fini le absolute */
+    }
+    .nav ul {
+        flex-direction: column;
+      }
+    
+  }
 .container{
     display: flex;
     flex-direction: column;

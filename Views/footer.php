@@ -24,12 +24,30 @@
   </footer>
   <script>
     
-    const toggleTheme = () => {
-    const current = document.documentElement.getAttribute('data-theme')
-    document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark')
+    const themeToggle = document.querySelector('.icon-theme');
+
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
     }
-    button = document.querySelector('.icon-theme')
-    button.addEventListener('click', toggleTheme)
+  });
+
+    const toggleButton = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    toggleButton.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
     
   </script>
 </body>
