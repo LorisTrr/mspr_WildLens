@@ -1,43 +1,17 @@
-# scripts/model.py
+# model.py
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.layers import GlobalAveragePooling2D, Dense, Input
+from tensorflow.keras.models import Model
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+def create_model(num_classes):
+    base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+    base_model.trainable = False  # Geler le modèle de base
 
-def create_cnn_model(input_shape, num_classes):
-    """
-    Crée et compile un modèle CNN pour la classification des traces de pas.
-    
-    :param input_shape: Tuple représentant la forme des images d'entrée (hauteur, largeur, canaux).
-    :param num_classes: Nombre de classes (animaux).
-    :return: Le modèle CNN compilé.
-    """
-    model = Sequential([
-        # Première couche convolutionnelle
-        Conv2D(32, (3, 3), activation='relu', input_shape=input_shape),
-        MaxPooling2D(2, 2),  # MaxPooling pour réduire la taille de l'image
+    x = GlobalAveragePooling2D()(base_model.output)
+    x = Dense(128, activation='relu')(x)
+    output = Dense(num_classes, activation='softmax')(x)
 
-        # Deuxième couche convolutionnelle
-        Conv2D(64, (3, 3), activation='relu'),
-        MaxPooling2D(2, 2),
+    model = Model(inputs=base_model.input, outputs=output)
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-        # Troisième couche convolutionnelle
-        Conv2D(128, (3, 3), activation='relu'),
-        MaxPooling2D(2, 2),
-
-        # Applatissement des images 2D en un vecteur 1D
-        Flatten(),
-
-        # Couche entièrement connectée (Fully Connected)
-        Dense(512, activation='relu'),
-        Dropout(0.5),  # Dropout pour éviter le surapprentissage (overfitting)
-
-        # Couche de sortie : une neurone par classe (avec activation softmax pour classification multi-classes)
-        Dense(num_classes, activation='softmax')
-    ])
-
-    # Compiler le modèle
-    model.compile(optimizer='adam',
-                  loss='categorical_crossentropy',  # Pour la classification multi-classes
-                  metrics=['accuracy'])
-    
     return model

@@ -1,74 +1,96 @@
+# train.py
 import os
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import classification_report, confusion_matrix
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras import layers, models
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
+from model import create_model
 
-# Répertoires
-train_dir = 'dataset/train'  # Répertoire contenant les images d'entraînement
-val_dir = 'dataset/validation'  # Répertoire contenant les images de validation
+# === Paramètres ===
+img_size = (224, 224)
+batch_size = 32
+epochs = 30
 
-# Préparation des générateurs de données avec augmentation
-train_datagen = ImageDataGenerator(
-    rescale=1./255,  # Normalisation des pixels
-    rotation_range=40,  # Rotation aléatoire
-    width_shift_range=0.2,  # Décalage horizontal
-    height_shift_range=0.2,  # Décalage vertical
-    shear_range=0.2,  # Cisaillement
-    zoom_range=0.2,  # Zoom
-    horizontal_flip=True,  # Retourner horizontalement
-    fill_mode='nearest'  # Mode de remplissage
-)
+base_dir = "data/processed_balanced"
+train_dir = os.path.join(base_dir, "train")
+val_dir = os.path.join(base_dir, "val")
+test_dir = os.path.join(base_dir, "test")
 
-val_datagen = ImageDataGenerator(rescale=1./255)
+# === Générateurs ===
+datagen = ImageDataGenerator(rescale=1./255)
 
-train_generator = train_datagen.flow_from_directory(
-    train_dir,  # Répertoire des images d'entraînement
-    target_size=(150, 150),  # Taille des images redimensionnées
-    batch_size=32,
-    class_mode='categorical'  # Categorical pour les étiquettes multiples
-)
+train_generator = datagen.flow_from_directory(train_dir, target_size=img_size, batch_size=batch_size, class_mode='categorical')
+val_generator = datagen.flow_from_directory(val_dir, target_size=img_size, batch_size=batch_size, class_mode='categorical')
+test_generator = datagen.flow_from_directory(test_dir, target_size=img_size, batch_size=batch_size, class_mode='categorical', shuffle=False)
 
-val_generator = val_datagen.flow_from_directory(
-    val_dir,  # Répertoire des images de validation
-    target_size=(150, 150),
-    batch_size=32,
-    class_mode='categorical'
-)
+# === Infos classes ===
+num_classes = len(train_generator.class_indices)
+class_names = list(train_generator.class_indices.keys())
 
-# Créer le modèle CNN
-model = models.Sequential([
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(64, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(128, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Flatten(),
-    layers.Dense(512, activation='relu'),
-    layers.Dense(len(train_generator.class_indices), activation='softmax')  # Nombre de classes dans le dataset
-])
+print("\n📊 Nombre d’images par classe :")
+for name in class_names:
+    train_count = len(os.listdir(os.path.join(train_dir, name)))
+    val_count = len(os.listdir(os.path.join(val_dir, name)))
+    test_count = len(os.listdir(os.path.join(test_dir, name)))
+    print(f"🦴 {name:<20} → train: {train_count}, val: {val_count}, test: {test_count}")
 
-# Compiler le modèle
-model.compile(
-    loss='categorical_crossentropy',
-    optimizer=Adam(),
-    metrics=['accuracy']
-)
+# === Création du modèle ===
+model = create_model(num_classes)
+model.summary()
 
-# Entraîner le modèle
-model.fit(
-    train_generator,
-    steps_per_epoch=train_generator.samples // train_generator.batch_size,
-    epochs=20,
-    validation_data=val_generator,
-    validation_steps=val_generator.samples // val_generator.batch_size
-)
+# === Callbacks ===
+early_stopping = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 
-# Sauvegarder le modèle
-model.save('model/model_wildlens.h5')
+# === Entraînement ===
+history = model.fit(train_generator, validation_data=val_generator, epochs=epochs, callbacks=[early_stopping])
 
-# Sauvegarder les noms des classes dans un fichier texte
-class_names = list(train_generator.class_indices.keys())  # Récupérer les noms des classes à partir du générateur
-with open('class_names.txt', 'w') as f:
-    for class_name in class_names:
-        f.write(f"{class_name}\n")
+# === Évaluation finale ===
+test_loss, test_acc = model.evaluate(test_generator)
+print(f"\n✅ Précision finale sur le test : \033[92m{test_acc * 100:.2f}%\033[0m")
+
+# === Prédictions ===
+y_pred = model.predict(test_generator, verbose=1)
+y_pred_classes = np.argmax(y_pred, axis=1)
+y_true = test_generator.classes
+
+# === Matrice de confusion ===
+cm = confusion_matrix(y_true, y_pred_classes)
+plt.figure(figsize=(10, 7))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)
+plt.xlabel('Prédictions')
+plt.ylabel('Véritables')
+plt.title('🔍 Matrice de Confusion')
+plt.tight_layout()
+plt.show()
+
+# === Rapport de classification ===
+print("📝 Rapport de classification :")
+print(classification_report(y_true, y_pred_classes, target_names=class_names))
+
+# === Courbes d’entraînement ===
+plt.figure(figsize=(12, 6))
+
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label="Entraînement")
+plt.plot(history.history['val_accuracy'], label="Validation")
+plt.title("📈 Précision")
+plt.xlabel("Époques")
+plt.ylabel("Précision")
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(history.history['loss'], label="Entraînement")
+plt.plot(history.history['val_loss'], label="Validation")
+plt.title("📉 Perte")
+plt.xlabel("Époques")
+plt.ylabel("Perte")
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+# === Sauvegarde du modèle ===
+model.save("model_trained.h5")
+print("\n💾 Modèle sauvegardé dans 'model_trained.h5'")
