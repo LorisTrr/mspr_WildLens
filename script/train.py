@@ -41,7 +41,7 @@ model = create_model(num_classes)
 model.summary()
 
 # === Callbacks ===
-early_stopping = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
+early_stopping = EarlyStopping(monitor='val_accuracy', patience=3, restore_best_weights=True)
 
 # === Entraînement ===
 history = model.fit(train_generator, validation_data=val_generator, epochs=epochs, callbacks=[early_stopping])
@@ -92,5 +92,9 @@ plt.tight_layout()
 plt.show()
 
 # === Sauvegarde du modèle ===
-model.save("model_trained.h5")
+model.save("model/model_trained.h5")
 print("\n💾 Modèle sauvegardé dans 'model_trained.h5'")
+
+with open('model/class_names.txt', 'w') as f:
+    for class_name in class_names:
+        f.write(f"{class_name}\n")

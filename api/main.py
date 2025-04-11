@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/wildlen
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-model = tf.keras.models.load_model('model/model_wildlens.h5')
+model = tf.keras.models.load_model('model/model_trained.h5')
 
 
 with open('model/class_names.txt', 'r') as f:
