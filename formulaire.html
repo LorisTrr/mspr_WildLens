@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire Testé en JS</title>
+  <style>
+    body { font-family: Arial; margin: 2em; }
+    .error { color: red; margin-top: 5px; }
+    input { display: block; margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <h2>Formulaire de Connexion</h2>
+
+  <form id="login-form">
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required />
+
+    <button type="submit">Envoyer</button>
+    <div id="error-messages" class="error"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById("login-form");
+    const errorDiv = document.getElementById("error-messages");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Empêche l’envoi par défaut
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      let errors = [];
+
+      // Validation simple
+      if (!email.includes("@") || !email.includes(".")) {
+        errors.push("L'email n'est pas valide.");
+      }
+
+      if (password.length < 6) {
+        errors.push("Le mot de passe doit faire au moins 6 caractères.");
+      }
+
+      if (errors.length > 0) {
+        errorDiv.innerHTML = errors.map(err => `<p>${err}</p>`).join("");
+      } else {
+        errorDiv.innerHTML = "";
+        alert("Formulaire validé et prêt à être envoyé !");
+        // Tu peux envoyer avec fetch ou laisser le formulaire s’envoyer normalement ici
+        // form.submit(); // <- décommenter si tu veux envoyer vraiment
+      }
+    });
+  </script>
+</body>
+</html>
