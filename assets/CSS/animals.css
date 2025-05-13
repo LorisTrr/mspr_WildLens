@@ -31,7 +31,6 @@
   }
   .animal img{
     height: 100px;
-    width: 80%;
   }
   .category{
     margin-top: 50px;
@@ -62,4 +61,9 @@
   border-radius:10px;
   padding: 20px 20px;
   margin-top: 50px;
+}
+.animal_picture{
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
 }
