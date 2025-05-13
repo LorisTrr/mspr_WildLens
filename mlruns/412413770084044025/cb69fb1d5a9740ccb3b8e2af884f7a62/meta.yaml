@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/wamp64/www/mspr_WildLens-main/mlruns/412413770084044025/cb69fb1d5a9740ccb3b8e2af884f7a62/artifacts
+end_time: 1746995812668
+entry_point_name: ''
+experiment_id: '412413770084044025'
+lifecycle_stage: active
+run_id: cb69fb1d5a9740ccb3b8e2af884f7a62
+run_name: MobileNetV2_TransferLearning
+run_uuid: cb69fb1d5a9740ccb3b8e2af884f7a62
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994697948
+status: 3
+tags: []
+user_id: nhammouche

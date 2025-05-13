@@ -1,0 +1,57 @@
+.profil-container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1f1b66;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  color: white;
+  justify-content: center;
+
+}
+
+.profil-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.profil-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+}
+
+.profil-details label {
+  font-weight: 600;
+  color: #4574e4;
+  margin: 10px;
+}
+
+.profil-details div {
+  background-color: #fff;
+  color: #000;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin: 20px;
+}
+
+.profil-edit-btn {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.profil-edit-btn button {
+  background-color: #3f2eb2;
+  color: rgb(194, 105, 105);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profil-edit-btn button:hover {
+  background-color: #2a1e8a;
+}

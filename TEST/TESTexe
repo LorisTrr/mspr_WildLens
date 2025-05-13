@@ -1,0 +1,6 @@
+@echo off
+echo === Lancement des tests avec rapport ===
+pytest TEST/test_api.py -v --html=rapport_tests.html --self-contained-html
+echo.
+echo Rapport HTML généré : rapport_tests.html
+pause

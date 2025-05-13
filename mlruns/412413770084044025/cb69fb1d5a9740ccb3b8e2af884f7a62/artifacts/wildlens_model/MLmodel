@@ -1,0 +1,19 @@
+artifact_path: wildlens_model
+flavors:
+  keras:
+    data: data
+    keras_backend: tensorflow
+    keras_version: 3.9.2
+    save_exported_model: false
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.keras
+    python_version: 3.11.9
+mlflow_version: 2.22.0
+model_size_bytes: 25893560
+model_uuid: cc990c10e69e433cb024da88380369c1
+prompts: null
+run_id: cb69fb1d5a9740ccb3b8e2af884f7a62
+utc_time_created: '2025-05-11 20:36:33.359475'

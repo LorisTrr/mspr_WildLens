@@ -1,32 +1,29 @@
-.container-log{
+main.container{
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 150px;;
 }
 
-.log, .register{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--primary);
-    padding: 50px;
-    border-radius: 20px;
-}
+
+
+
 form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+     background-color: var(--primary);
+    padding: 2rem;
+
 }
 input{
     margin-top: 10px;
     width: 200px;
     height: 30px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(165, 27, 27);
 }
 button{
     margin-top: 10px;
@@ -43,5 +40,8 @@ button:hover{
     cursor: pointer;
 }
 h1, p {
-    color: var(--text);
+    color: rgb(3, 3, 3);
+}
+form.label{ 
+    color: #F2F2F2;
 }

@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import load_img, img_to_array, array_to_img
 from PIL import Image
 
-# 📌 PARAMÈTRES
+# PARAMÈTRES
 DATA_DIR = "data/downloaded_data/Mammifères"
 TARGET_PER_CLASS = 300  # Total par classe après augmentation
 SPLIT_RATIOS = {"train": 0.7, "val": 0.15, "test": 0.15}
@@ -16,7 +16,7 @@ OUTPUT_DIR = "data/processed_balanced"
 for split in SPLIT_RATIOS:
     os.makedirs(os.path.join(OUTPUT_DIR, split), exist_ok=True)
 
-# ⚙️ FONCTIONS D'AUGMENTATION
+# FONCTIONS D'AUGMENTATION
 def augment_image(img):
     img = tf.image.random_flip_left_right(img)
     img = tf.image.random_brightness(img, max_delta=0.2)
@@ -27,13 +27,13 @@ def augment_image(img):
     img = tf.clip_by_value(img, 0.0, 255.0)
     return img
 
-# 🔁 Boucle sur chaque classe
+# Boucle sur chaque classe
 for class_name in os.listdir(DATA_DIR):
     class_path = os.path.join(DATA_DIR, class_name)
     if not os.path.isdir(class_path):
         continue
 
-    print(f"📂 Traitement de la classe : {class_name}")
+    print(f" Traitement de la classe : {class_name}")
 
     # Charger les images originales
     images = [os.path.join(class_path, f) for f in os.listdir(class_path) if f.lower().endswith(('.jpg', '.png', '.jpeg'))]
@@ -48,7 +48,7 @@ for class_name in os.listdir(DATA_DIR):
             img_array = img_to_array(img)
             loaded_images.append(img_array)
         except Exception as e:
-            print(f"❌ Erreur avec {img_path} : {e}")
+            print(f"Erreur avec {img_path} : {e}")
 
     # Créer des images augmentées jusqu'à atteindre TARGET_PER_CLASS
     all_images = loaded_images.copy()
@@ -78,4 +78,4 @@ for class_name in os.listdir(DATA_DIR):
             img = array_to_img(img_array)
             img.save(os.path.join(split_dir, f"{class_name}_{i:04d}.jpg"))
 
-print("✅ Tous les fichiers sont équilibrés et enregistrés par classe et par split !")
+print("Tous les fichiers sont équilibrés et enregistrés par classe et par split !")

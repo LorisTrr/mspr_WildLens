@@ -1,0 +1,93 @@
+2025-05-10 10:11:04 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 10:11:04 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-10 10:11:04 [INFO] Route:  * Restarting with stat
+2025-05-10 10:11:09 [WARNING] Route:  * Debugger is active!
+2025-05-10 10:11:09 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-10 10:12:21 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 10:12:21 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-10 10:12:21 [INFO] Route:  * Restarting with stat
+2025-05-10 10:12:26 [WARNING] Route:  * Debugger is active!
+2025-05-10 10:12:26 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-10 10:13:15 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:13:15] "POST /model/predict HTTP/1.1" 200 -
+2025-05-10 10:13:43 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:13:43] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:13:58 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:13:58] "POST /login HTTP/1.1" 200 -
+2025-05-10 10:14:17 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:14:17] "POST /model/predict HTTP/1.1" 200 -
+2025-05-10 10:27:23 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:27:23] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:38:51 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:38:51] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:41:40 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:41:40] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:41:59 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:41:59] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:53:19 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:53:19] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:55:11 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:55:11] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 10:56:18 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:56:18] "POST /model/predict HTTP/1.1" 200 -
+2025-05-10 10:56:27 [INFO] Route: 127.0.0.1 - - [10/May/2025 10:56:27] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:31:07 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 11:31:07 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-10 11:31:07 [INFO] Route:  * Restarting with stat
+2025-05-10 11:31:12 [WARNING] Route:  * Debugger is active!
+2025-05-10 11:31:12 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-10 11:31:18 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:31:18] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:31:22 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:31:22] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:31:31 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:31:31] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:36:32 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:36:32] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:45:04 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:45:04] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:45:24 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:45:24] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:46:09 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:46:09] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 11:49:58 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 11:49:58 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-10 11:49:58 [INFO] Route:  * Restarting with stat
+2025-05-10 11:50:02 [WARNING] Route:  * Debugger is active!
+2025-05-10 11:50:02 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-10 11:54:18 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:54:18] "POST /login HTTP/1.1" 200 -
+2025-05-10 11:54:25 [INFO] Route: 127.0.0.1 - - [10/May/2025 11:54:25] "PUT /users/25 HTTP/1.1" 200 -
+2025-05-10 12:12:18 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 12:12:18 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-10 12:12:18 [INFO] Route:  * Restarting with stat
+2025-05-10 12:12:22 [WARNING] Route:  * Debugger is active!
+2025-05-10 12:12:22 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-10 12:13:00 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:13:00] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 12:40:43 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-10 12:40:43 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-10 12:40:43 [INFO] Route:  * Restarting with stat
+2025-05-10 12:40:48 [WARNING] Route:  * Debugger is active!
+2025-05-10 12:40:48 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-10 12:40:56 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:40:56] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 12:44:27 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:44:27] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-10 12:55:40 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:55:40] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-10 12:57:21 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:57:21] "POST /login HTTP/1.1" 200 -
+2025-05-10 12:58:11 [ERROR] Route: /users/<id> | Exception: (pymysql.err.IntegrityError) (1062, "Duplicata du champ 'updateduser' pour la clef 'user.username'")
+[SQL: UPDATE user SET username=%(username)s, email=%(email)s WHERE user.id = %(user_id)s]
+[parameters: {'username': 'updateduser', 'email': 'updated@example.com', 'user_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-10 12:58:11 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:58:11] "[35m[1mPUT /users/7 HTTP/1.1[0m" 500 -
+2025-05-10 12:58:34 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:58:34] "PUT /users/7 HTTP/1.1" 200 -
+2025-05-10 12:59:07 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:59:07] "[33mPOST /reset-password-direct HTTP/1.1[0m" 404 -
+2025-05-10 12:59:45 [INFO] Route: 127.0.0.1 - - [10/May/2025 12:59:45] "POST /reset-password-direct HTTP/1.1" 200 -
+2025-05-10 13:00:09 [INFO] Route: 127.0.0.1 - - [10/May/2025 13:00:09] "[31m[1mGET /photos/user HTTP/1.1[0m" 403 -
+2025-05-12 03:06:42 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 03:06:42 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-12 03:06:42 [INFO] Route:  * Restarting with stat
+2025-05-12 03:06:47 [WARNING] Route:  * Debugger is active!
+2025-05-12 03:06:47 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-12 03:07:12 [INFO] Route: 127.0.0.1 - - [12/May/2025 03:07:12] "POST /model/predict HTTP/1.1" 200 -
+2025-05-12 03:07:21 [INFO] Route: 127.0.0.1 - - [12/May/2025 03:07:21] "POST /model/predict HTTP/1.1" 200 -
+2025-05-12 03:07:33 [INFO] Route: 127.0.0.1 - - [12/May/2025 03:07:33] "POST /model/predict HTTP/1.1" 200 -
+2025-05-13 09:39:57 [INFO] Route: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 09:39:57 [INFO] Route: [33mPress CTRL+C to quit[0m
+2025-05-13 09:39:57 [INFO] Route:  * Restarting with stat
+2025-05-13 09:40:02 [WARNING] Route:  * Debugger is active!
+2025-05-13 09:40:02 [INFO] Route:  * Debugger PIN: 154-459-752
+2025-05-13 09:40:32 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:40:32] "POST /model/predict HTTP/1.1" 200 -
+2025-05-13 09:42:32 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:42:32] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-13 09:42:41 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:42:41] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-13 09:42:49 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:42:49] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-13 09:43:57 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:43:57] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-13 09:44:15 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:44:15] "[33mPOST /reset-password-direct HTTP/1.1[0m" 404 -
+2025-05-13 09:44:34 [INFO] Route: 127.0.0.1 - - [13/May/2025 09:44:34] "[33mPOST /reset-password-direct HTTP/1.1[0m" 404 -

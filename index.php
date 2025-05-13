@@ -36,11 +36,28 @@ switch($page) {
         require_once "Views/find_animals.php";
         break;
     case 'log' : 
-        require_once "Views/log.php";
+        require_once "Views/login.php";
         break;
+    case 'logout':
+            require_once "Views/logout.php";
+            break;
+        
+    case 'profil' : 
+        require_once "Views/profil.php";
+        break; 
+    case 'historique' : 
+        require_once "Views/historique.php";
+        break;    
+    case 'edit_profil' : 
+        require_once "Views/edit_profil.php";
+        break;    
     case 'predict':
         require_once "Views/predict.php";
         break;
+    case 'forgot_password':
+    require_once "Views/forgot_password.php";
+    break;
+
     default:
         require_once "Views/accueil.php";
         break;
