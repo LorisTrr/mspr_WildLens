@@ -30,7 +30,6 @@
     
   }
   .animal_picture{
-    
     width: 40%;
   }
   .name-animal{
@@ -68,4 +67,14 @@
   border-radius:10px;
   padding: 20px 20px;
   margin-top: 50px;
+}
+.animal_picture{
+  width: 80%;
+  height: 80%;
+  display: flex;
+}
+.name-animal{
+  font-size: 36px;
+  color: var(--text);
+  margin-top: 20px;
 }
