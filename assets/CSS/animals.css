@@ -63,7 +63,6 @@
   margin-top: 50px;
 }
 .animal_picture{
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
+  width: 70px;
+  height: 70px;
 }
