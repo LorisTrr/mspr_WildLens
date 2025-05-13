@@ -42,6 +42,7 @@ button:hover{
 h1, p {
     color: rgb(3, 3, 3);
 }
-form.label{ 
+form .label{ 
     color: #F2F2F2;
+
 }

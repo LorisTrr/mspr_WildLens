@@ -128,10 +128,10 @@ if ($form_type === 'login') {
                 <input type="hidden" name="form_type" value="login">
                 <p id="login-desc">Connectez-vous pour accéder à votre compte.</p>
 
-                <label for="email">Adresse e-mail :</label>
+                <label class='label' for="email">Adresse e-mail :</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="password">Mot de passe :</label>
+                <label class='label' for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password" required>
 
                 <button type="submit">Se connecter</button>
