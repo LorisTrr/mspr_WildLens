@@ -1,3 +1,4 @@
 data/
 model/
 script/__pycache__/
+api/wildlens_api.log
