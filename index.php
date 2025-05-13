@@ -39,9 +39,8 @@ switch($page) {
         require_once "Views/login.php";
         break;
     case 'logout':
-            require_once "Views/logout.php";
-            break;
-        
+        require_once "Views/logout.php";
+        break;
     case 'profil' : 
         require_once "Views/profil.php";
         break; 
@@ -55,9 +54,8 @@ switch($page) {
         require_once "Views/predict.php";
         break;
     case 'forgot_password':
-    require_once "Views/forgot_password.php";
-    break;
-
+        require_once "Views/forgot_password.php";
+        break;
     default:
         require_once "Views/accueil.php";
         break;

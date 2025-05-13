@@ -29,9 +29,15 @@
     font-size: 36px;
     
   }
-  .animal img{
-    height: 100px;
+  .animal_picture{
+    width: 40%;
   }
+  .name-animal{
+    color: var(--text);
+    font-size: 22px;
+    text-align: center;
+  }
+
   .category{
     margin-top: 50px;
     background-color: var(--primary);
