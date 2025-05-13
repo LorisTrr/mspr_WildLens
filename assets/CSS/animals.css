@@ -67,3 +67,8 @@
   height: 80%;
   display: flex;
 }
+.name-animal{
+  font-size: 36px;
+  color: var(--text);
+  margin-top: 20px;
+}
