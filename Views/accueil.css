@@ -1,0 +1,118 @@
+/* === Styles pour la page d'accueil avec formulaire === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.scan-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-container h1 {
+  font-size: 2.2rem;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.intro-text {
+  max-width: 700px;
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.scan-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 1rem;
+  background-color: var(--primary);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  max-width: 1000px;
+  width: 90%;
+  color: #fff;
+}
+
+.scan-image img {
+  max-width: 280px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.scan-form {
+  background-color: var(--bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 280px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.scan-form label {
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  font-size: 1rem;
+}
+
+.scan-form input[type="file"],
+.scan-form select {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--secondary);
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.scan-form button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.scan-form button:hover {
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .scan-section {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .scan-image img {
+    max-width: 100%;
+  }
+}

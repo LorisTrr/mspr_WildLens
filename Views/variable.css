@@ -1,0 +1,16 @@
+:root {
+  --bg: #fefcfb;           /* Fond crème doux */
+  --text: #1b1b1f;         /* Texte noir doux */
+  --primary: #2b9348;      /* Vert forêt accessible */
+  --secondary: #cdecd6;    /* Vert menthe clair */
+  --icon-color: #4a4a4a;   /* Gris foncé pour icônes */
+}
+
+[data-theme="dark"] {
+  --bg: #0b1d17;           /* Fond vert-noir foncé */
+  --text: #e6f2e8;         /* Texte très clair */
+  --background: #132a13;   /* Pour blocs secondaires */
+  --primary: #225f31;      /* Vert clair naturel, très visible */
+  --secondary: #80b1a6;    /* Vert bouteille pour hover/fonds */
+  --icon-color: #cce3dc;   /* Icônes claires sur fond foncé */
+}

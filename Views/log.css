@@ -1,0 +1,90 @@
+main.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 150px;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* === FORMULAIRE === */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: var(--primary);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: var(--text);
+}
+
+/* CHAMPS INPUT */
+input {
+  margin-top: 10px;
+  width: 250px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--secondary);
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* BOUTON */
+button {
+  margin-top: 15px;
+  width: 120px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--secondary);
+  background-color: var(--bg);
+  color: var(--text);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--primary);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+/* TITRES ET TEXTES */
+h1, p {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+/* ÉTIQUETTES DU FORMULAIRE */
+form label {
+  color: var(--bg);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  main.container {
+    flex-direction: column;
+    margin-top: 80px;
+  }
+
+  form {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}

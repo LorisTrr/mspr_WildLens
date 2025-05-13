@@ -1,0 +1,143 @@
+/* === GÉNÉRAL === */
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 !important;
+  background-color: var(--secondary);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === HEADER === */
+.header {
+  background-color: var(--primary);
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* === ICÔNE DE THÈME === */
+.icon-theme {
+  width: 50px;
+  height: auto;
+  color: var(--icon-color);
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.icon-theme:hover {
+  color: var(--secondary);
+}
+
+/* === NAVIGATION === */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.nav.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.nav a {
+  color: var(--bg);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--secondary);
+}
+
+/* === BOUTON MENU BURGER === */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--bg);
+  cursor: pointer;
+}
+
+/* === LOGO ET TITRE SUR LA MÊME LIGNE === */
+.logo-menu-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* espace entre le logo et le titre */
+}
+
+/* === CONTAINER PAGE GÉNÉRAL === */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === LIENS DE NAVIGATION PERSONNALISÉS === */
+.element-nav > a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.element-nav > a:hover {
+  color: #dfdfdf;
+  border-bottom: 1px solid var(--text);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    display: none;
+    width: 100%;
+  }
+
+  .nav.active {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav a {
+    text-align: right;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

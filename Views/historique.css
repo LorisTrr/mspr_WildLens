@@ -1,0 +1,102 @@
+/* TABLEAU GÉNÉRAL */
+.table-historique {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  color: var(--text);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table-historique caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.table-historique th,
+.table-historique td {
+  padding: 1rem 1.2rem;
+  border: none;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-historique th {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.table-historique tbody tr:nth-child(even) {
+  background-color: var(--secondary);
+}
+
+.table-historique tbody tr:nth-child(odd) {
+  background-color: var(--bg);
+}
+
+.table-historique tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.table-historique img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* RESPONSIVE (VERSION CARTE) */
+@media (max-width: 768px) {
+  .table-historique thead {
+    display: none;
+  }
+
+  .table-historique,
+  .table-historique tbody,
+  .table-historique tr,
+  .table-historique td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-historique tr {
+    margin-bottom: 1rem;
+    background-color: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+
+  .table-historique td {
+    padding: 0.5rem 0;
+    position: relative;
+    border: none;
+  }
+
+  .table-historique td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .table-historique img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+}

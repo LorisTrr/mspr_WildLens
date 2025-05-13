@@ -1,0 +1,142 @@
+/* === FOND GÉNÉRAL === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* === SECTION DES CARTES ANIMALES === */
+.tab_animals {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.link_animal {
+  text-decoration: none !important;
+}
+
+.animal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: calc(25% - 1rem);
+  min-width: 220px;
+  height: 100px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.animal:hover {
+  transform: scale(1.03);
+}
+
+.animal img {
+  height: 100%;
+  max-height: 90px;
+  padding: 0 10px;
+  object-fit: contain;
+}
+
+/* === TITRE DE PAGE === */
+h3 {
+  color: var(--text);
+  font-size: 2rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* === SECTION CATÉGORIE AVEC DESCRIPTION === */
+.category {
+  margin-top: 3rem;
+  background-color: var(--primary);
+  width: 60%;
+  padding: 2rem;
+  border-radius: 10px;
+  color: var(--text);
+ 
+}
+
+/* Image + titre */
+.title-img {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.description {
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  color: var(--text);
+  flex: 1;
+}
+
+/* === MESSAGE EN CAS D'ABSENCE D'ANIMAUX === */
+.no-animals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: var(--primary);
+  color: var(--text);
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .animal {
+    width: calc(33.333% - 1rem);
+  }
+
+  .category {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .animal {
+    width: calc(50% - 1rem);
+  }
+
+  .title-img {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .category {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .animal {
+    width: 100%;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .no-animals {
+    font-size: 1.5rem;
+  }
+}
